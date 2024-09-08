@@ -581,6 +581,15 @@ impl<T> Receiver<T> {
         }
     }
 
+    pub fn is_closed(&self) -> bool {
+        if let Some(inner) = self.inner.as_ref() {
+            let state = State(*inner.state.borrow());
+            state.is_closed()
+        } else {
+            true
+        }
+    }
+
     /// Attempts to receive a value.
     ///
     /// If a pending value exists in the channel, it is returned. If no value

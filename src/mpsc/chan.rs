@@ -213,6 +213,10 @@ where
     pub(crate) fn close(&mut self) {
         self.chan.semaphore.close();
     }
+
+    pub fn is_closed(&self) -> bool {
+        self.chan.semaphore.is_closed()
+    }
 }
 
 impl<T, S> Drop for Rx<T, S>
