@@ -25,6 +25,10 @@ impl<T> Tx<T> {
         self.0.send(value)
     }
 
+    pub fn close(&mut self) {
+        self.0.close()
+    }
+
     pub fn is_closed(&self) -> bool {
         self.0.is_closed()
     }
