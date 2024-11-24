@@ -363,7 +363,7 @@ impl<T> Sender<T> {
     /// # "hello".to_string()
     /// }
     ///
-    /// #[monoio::main]
+    /// #[monoio::main(enable_timer = true)]
     /// async fn main() {
     ///     let (mut tx, rx) = oneshot::channel();
     ///
