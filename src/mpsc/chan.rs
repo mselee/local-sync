@@ -125,7 +125,7 @@ where
         Ok(())
     }
 
-    pub(crate) fn close(&mut self) {
+    pub(crate) fn close(&self) {
         self.chan.semaphore.close();
     }
 
@@ -214,7 +214,7 @@ where
         Poll::Pending
     }
 
-    pub(crate) fn close(&mut self) {
+    pub(crate) fn close(&self) {
         self.chan.semaphore.close();
     }
 

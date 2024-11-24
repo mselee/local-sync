@@ -20,7 +20,7 @@ impl<T> Tx<T> {
         self.0.send(value)
     }
 
-    pub fn close(&mut self) {
+    pub fn close(&self) {
         self.0.close()
     }
 
@@ -52,7 +52,7 @@ impl<T> Rx<T> {
         self.0.try_recv()
     }
 
-    pub fn close(&mut self) {
+    pub fn close(&self) {
         self.0.close()
     }
 

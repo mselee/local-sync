@@ -575,7 +575,7 @@ impl<T> Receiver<T> {
     ///     assert_eq!(msg, "will receive");
     /// }
     /// ```
-    pub fn close(&mut self) {
+    pub fn close(&self) {
         if let Some(inner) = self.inner.as_ref() {
             inner.close();
         }
