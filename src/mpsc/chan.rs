@@ -129,13 +129,17 @@ where
         self.chan.semaphore.close();
     }
 
-    pub fn is_closed(&self) -> bool {
+    pub(crate) fn is_closed(&self) -> bool {
         self.chan.semaphore.is_closed()
     }
 
     /// Returns `true` if senders belong to the same channel.
     pub(crate) fn same_channel(&self, other: &Self) -> bool {
         Rc::ptr_eq(&self.chan, &other.chan)
+    }
+
+    pub(crate) fn hint(&self) -> usize {
+        self.chan.queue.borrow().len()
     }
 }
 
@@ -218,8 +222,12 @@ where
         self.chan.semaphore.close();
     }
 
-    pub fn is_closed(&self) -> bool {
+    pub(crate) fn is_closed(&self) -> bool {
         self.chan.semaphore.is_closed()
+    }
+
+    pub(crate) fn hint(&self) -> usize {
+        self.chan.queue.borrow().len()
     }
 }
 
