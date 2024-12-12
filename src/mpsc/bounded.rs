@@ -36,6 +36,10 @@ impl<T> Tx<T> {
     pub fn same_channel(&self, other: &Self) -> bool {
         self.0.same_channel(&other.0)
     }
+
+    pub fn hint(&self) -> usize {
+        self.0.hint()
+    }
 }
 
 impl<T> Clone for Tx<T> {
@@ -63,6 +67,10 @@ impl<T> Rx<T> {
 
     pub fn is_closed(&self) -> bool {
         self.0.is_closed()
+    }
+
+    pub fn hint(&self) -> usize {
+        self.0.hint()
     }
 }
 
