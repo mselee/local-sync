@@ -9,9 +9,7 @@ license = "MIT OR Apache-2.0"
 edition = "2021"
 
 [dependencies]
-futures-core = { version = "0.3", default-features = false }
-futures-sink = { version = "0.3", default-features = false }
-futures-util = { version = "0.3", default-features = false }
+futures-lite = { version = "2.5.0", default-features = false }
 
 [dev-dependencies]
 monoio = { version = "0.1.0", features = ["macros"] }

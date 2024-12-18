@@ -165,7 +165,7 @@ pub mod error {
     impl std::error::Error for TryRecvError {}
 }
 
-use futures_core::ready;
+use futures_lite::ready;
 
 use self::error::*;
 
@@ -385,7 +385,7 @@ impl<T> Sender<T> {
     /// }
     /// ```
     pub async fn closed(&mut self) {
-        use futures_util::future::poll_fn;
+        use futures_lite::future::poll_fn;
 
         poll_fn(|cx| self.poll_closed(cx)).await
     }
@@ -449,7 +449,7 @@ impl<T> Sender<T> {
     /// ```
     /// use local_sync::oneshot;
     ///
-    /// use futures_util::future::poll_fn;
+    /// use futures_lite::future::poll_fn;
     ///
     /// #[monoio::main]
     /// async fn main() {

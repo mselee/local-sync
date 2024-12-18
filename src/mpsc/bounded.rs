@@ -1,6 +1,6 @@
 use super::chan::{self, SendError, TryRecvError};
 use crate::semaphore::Inner;
-use futures_util::future::poll_fn;
+use futures_lite::future::poll_fn;
 use std::task::{Context, Poll};
 
 pub struct Tx<T>(chan::Tx<T, Inner>);

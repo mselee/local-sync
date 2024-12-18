@@ -252,7 +252,7 @@ where
 mod tests {
     use super::channel;
     use crate::semaphore::Inner;
-    use futures_util::future::poll_fn;
+    use futures_lite::future::poll_fn;
 
     #[monoio::test]
     async fn test_chan() {

@@ -567,7 +567,7 @@ impl<'a> Future for AcquireResult<'a> {
         let sem = self.1;
         let permits = self.2;
         let inner = unsafe { self.map_unchecked_mut(|me| &mut me.0) };
-        futures_util::ready!(inner.poll(cx))?;
+        futures_lite::ready!(inner.poll(cx))?;
         Poll::Ready(Ok(SemaphorePermit { sem, permits }))
     }
 }
